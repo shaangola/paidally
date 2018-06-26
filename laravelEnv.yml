@@ -1,0 +1,4 @@
+name: laravelEnv
+channels:
+  - defaults
+prefix: C:\Users\shantigola\AppData\Local\conda\conda\envs\laravelEnv
