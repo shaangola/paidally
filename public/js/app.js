@@ -32238,7 +32238,7 @@ var Main = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this));
 
     _this.state = {
-      products: []
+      users: []
     };
     return _this;
   }
@@ -32253,25 +32253,26 @@ var Main = function (_Component) {
       var _this2 = this;
 
       /* fetch API in action */
-      fetch('/api/products').then(function (response) {
+      fetch('/api/v1/getUserList').then(function (response) {
         return response.json();
-      }).then(function (products) {
+      }).then(function (response) {
+        var users = response.user_list;
         //Fetched product is stored in the state
-        _this2.setState({ products: products });
+        _this2.setState({ users: users });
       });
     }
   }, {
     key: 'renderProducts',
     value: function renderProducts() {
-      return this.state.products.map(function (product) {
+      return this.state.users.map(function (product) {
         return (
           /* When using list you need to specify a key
            * attribute that is unique for each list item
           */
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'li',
-            { key: product.id },
-            product.title
+            { key: product.name },
+            product.email
           )
         );
       });

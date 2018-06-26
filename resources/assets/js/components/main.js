@@ -9,7 +9,7 @@ class Main extends Component {
     super();
     //Initialize the state in the constructor
     this.state = {
-        products: [],
+        users: [],
     }
   }
   /*componentDidMount() is a lifecycle method
@@ -17,24 +17,25 @@ class Main extends Component {
    */
   componentDidMount() {
     /* fetch API in action */
-    fetch('/api/products')
+    fetch('/api/v1/getUserList')
         .then(response => {
             return response.json();
         })
-        .then(products => {
+        .then(response=> {
+            let users= response.user_list
             //Fetched product is stored in the state
-            this.setState({ products });
+            this.setState({users});
         });
   }
  
  renderProducts() {
-    return this.state.products.map(product => {
+    return this.state.users.map(product => {
         return (
             /* When using list you need to specify a key
              * attribute that is unique for each list item
             */
-            <li key={product.id} >
-                { product.title } 
+            <li key={product.name} >
+                { product.email } 
             </li>      
         );
     })
