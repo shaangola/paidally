@@ -29,12 +29,12 @@ class Main extends Component {
   }
  
  renderProducts() {
-    return this.state.users.map(product => {
+    return this.state.users.map((product) => {
         return (
             /* When using list you need to specify a key
              * attribute that is unique for each list item
             */
-            <li key={product.name} >
+            <li key={product.name}>
                 { product.email } 
             </li>      
         );
