@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
- 
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch,
+    Redirect
+    } from 'react-router-dom';
+import Login from './Login';
+import Menu from './Menu';
+import NameForm from './nameForm';
+import FlipBox from './FlipBox';
+
 /* Main Component */
 class Main extends Component {
  
@@ -10,6 +21,7 @@ class Main extends Component {
     //Initialize the state in the constructor
     this.state = {
         users: [],
+        loggedin:false
     }
   }
   /*componentDidMount() is a lifecycle method
@@ -45,10 +57,9 @@ class Main extends Component {
    /* Some css code has been removed for brevity */
     return (
         <div>
-              <ul>
-                { this.renderProducts() }
-              </ul> 
-            </div> 
+            <FlipBox />
+            {/* <Login /> */}
+        </div>
        
     );
   }
@@ -60,5 +71,5 @@ export default Main;
 */
  
 if (document.getElementById('root')) {
-    ReactDOM.render(<Main />, document.getElementById('root'));
+    ReactDOM.render(<Main ></ Main>, document.getElementById('root'));
 }
